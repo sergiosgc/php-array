@@ -31,7 +31,7 @@ class ArrayAdapter extends \ArrayObject {
         return self::from(array_filter((array) $this, $callback ?? function($v) { return $v; }, ARRAY_FILTER_USE_BOTH));
     }
     public function implode(string $glue = '') : string {
-        return implode((array) $this, $glue);
+        return implode($glue, (array) $this);
     }
     public static function explode(string $delimiter, string $str, nt $limit = PHP_INT_MAX) : ArrayAdapter {
         return static::from(explode($delimiter, $str, $limit));
